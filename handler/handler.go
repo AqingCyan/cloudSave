@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 )
 
@@ -64,7 +65,7 @@ func UploadSucHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // GetFileMetaHandler: 查询文件元信息
-func GetFileMetaHandler(w http.ResponseWriter, r *http.Request)  {
+func GetFileMetaHandler(w http.ResponseWriter, r *http.Request) {
 	_ = r.ParseForm()
 	filehash := r.Form["filehash"][0]
 	fMeta := meta.GetFileMeta(filehash)
@@ -73,5 +74,19 @@ func GetFileMetaHandler(w http.ResponseWriter, r *http.Request)  {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	_, _ = w.Write(data)
+}
+
+// FileQueryHandler: 查询批量的文件元信息
+func FileQueryHandler(w http.ResponseWriter, r *http.Request) {
+	_ = r.ParseForm()
+	limitCnt, _ := strconv.Atoi(r.Form.Get("limit"))
+	fileMetas := meta.GetLastFileMetas(limitCnt)
+	data, err := json.Marshal(fileMetas)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-type","application/json")
 	_, _ = w.Write(data)
 }
