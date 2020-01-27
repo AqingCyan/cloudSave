@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aa17c17-dd0d-425e-881b-d0acc020fe29" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/xuekaiqi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/xuekaiqi.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta/filemeta.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta/filemeta.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mian.go" beforeDir="false" afterPath="$PROJECT_DIR$/mian.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,15 +45,6 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="filestore-server" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <go_parameters value="-i" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
     <configuration name="go build filestore-server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="filestore-server" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -61,16 +52,6 @@
       <filePath value="$PROJECT_DIR$/mian.go" />
       <package value="filestore-server" />
       <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="filestore-server" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <go_parameters value="-i" />
-      <framework value="gotest" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -99,22 +80,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="320" y="127" key="#GOPATH/0.23.1440.877@0.23.1440.877" timestamp="1580041595534" />
-    <state width="1398" height="198" key="GridCell.Tab.0.bottom" timestamp="1580052811509">
+    <state width="1398" height="198" key="GridCell.Tab.0.bottom" timestamp="1580053187942">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="198" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580052811509" />
-    <state width="1398" height="198" key="GridCell.Tab.0.center" timestamp="1580052811508">
+    <state width="1398" height="198" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580053187942" />
+    <state width="1398" height="198" key="GridCell.Tab.0.center" timestamp="1580053187941">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="198" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580052811508" />
-    <state width="1398" height="198" key="GridCell.Tab.0.left" timestamp="1580052811507">
+    <state width="1398" height="198" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580053187941" />
+    <state width="1398" height="198" key="GridCell.Tab.0.left" timestamp="1580053187941">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="198" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580052811507" />
-    <state width="1398" height="198" key="GridCell.Tab.0.right" timestamp="1580052811508">
+    <state width="1398" height="198" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580053187941" />
+    <state width="1398" height="198" key="GridCell.Tab.0.right" timestamp="1580053187942">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="198" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580052811508" />
+    <state width="1398" height="198" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580053187942" />
     <state x="221" y="100" key="SettingsEditor" timestamp="1580049674382">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

@@ -87,6 +87,28 @@ func FileQueryHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	w.Header().Set("Content-type","application/json")
+	w.Header().Set("Content-type", "application/json")
+	_, _ = w.Write(data)
+}
+
+// DownloadHandler: 下载指定文件
+func DownloadHandler(w http.ResponseWriter, r *http.Request) {
+	_ = r.ParseForm()
+	fsha1 := r.Form.Get("filehash")
+	fm := meta.GetFileMeta(fsha1)
+	f, err := os.Open(fm.Location)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	defer f.Close()
+
+	data, err := ioutil.ReadAll(f)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-type", "application/json")
+	w.Header().Set("Content-Disposition", "attachment;filename=\""+fm.FileName+"\"")
 	_, _ = w.Write(data)
 }
