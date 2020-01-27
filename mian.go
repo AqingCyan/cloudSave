@@ -12,6 +12,9 @@ func main()  {
 	http.HandleFunc("/file/meta", handler.GetFileMetaHandler)
 	http.HandleFunc("/file/query", handler.FileQueryHandler)
 	http.HandleFunc("/file/download", handler.DownloadHandler)
+	http.HandleFunc("/file/update", handler.FileMetaUpdateHandler)
+	http.HandleFunc("/file/delete", handler.FileDeleteHandler)
+
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
 		fmt.Printf("Failed to start Server, err:%s", err.Error())
