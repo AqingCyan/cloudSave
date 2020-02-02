@@ -1,6 +1,8 @@
 <component name="ProjectDictionaryState">
   <dictionary name="xuekaiqi">
     <words>
+      <w>dblayer</w>
+      <w>encpwd</w>
       <w>fileaddr</w>
       <w>filehash</w>
       <w>filesize</w>
@@ -8,6 +10,10 @@
       <w>fsha</w>
       <w>internel</w>
       <w>mydb</w>
+      <w>passwd</w>
+      <w>signin</w>
+      <w>signup</w>
+      <w>singin</w>
       <w>tfile</w>
     </words>
   </dictionary>
