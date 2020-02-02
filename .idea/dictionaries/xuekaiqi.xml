@@ -1,10 +1,13 @@
 <component name="ProjectDictionaryState">
   <dictionary name="xuekaiqi">
     <words>
+      <w>fileaddr</w>
       <w>filehash</w>
+      <w>filesize</w>
       <w>fmeta</w>
       <w>fsha</w>
       <w>internel</w>
+      <w>mydb</w>
     </words>
   </dictionary>
 </component>

@@ -1,6 +1,7 @@
 package meta
 
 import (
+	mydb "filestore-server/db"
 	"sort"
 )
 
@@ -24,6 +25,11 @@ func UpdateFileMeta(fmeta FileMeta) {
 	fileMetas[fmeta.FileSha1] = fmeta
 }
 
+// UpdateFileMetaDb: 新增/更新文件元信息到mysql中
+func UpdateFileMetaDb(fmeta FileMeta) bool {
+	return mydb.OnFileUploadFinished(fmeta.FileSha1, fmeta.FileName, fmeta.FileSize, fmeta.Location)
+}
+
 // GetFileMeta : 通过sha1值获取文件的元信息对象
 func GetFileMeta(fileSha1 string) FileMeta {
 	return fileMetas[fileSha1]
@@ -41,6 +47,6 @@ func GetLastFileMetas(count int) []FileMeta {
 }
 
 // RemoveFileMeta: 删除文件元信息
-func RemoveFileMeta(fileSha1 string)  {
+func RemoveFileMeta(fileSha1 string) {
 	delete(fileMetas, fileSha1)
 }
