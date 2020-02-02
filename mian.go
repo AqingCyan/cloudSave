@@ -18,7 +18,8 @@ func main()  {
 	http.HandleFunc("/file/delete", handler.FileDeleteHandler)
 
 	http.HandleFunc("/user/signup", handler.SignupHandler)
-	http.HandleFunc("/user/singin", handler.SignInHandler)
+	http.HandleFunc("/user/signin", handler.SignInHandler)
+	http.HandleFunc("/user/info", handler.HTTPInterceptor(handler.UserInfoHandler))
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
 		fmt.Printf("Failed to start Server, err:%s", err.Error())

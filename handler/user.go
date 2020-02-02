@@ -48,17 +48,6 @@ func SignupHandler(w http.ResponseWriter, r *http.Request) {
 
 // SignInHandler : 登录接口
 func SignInHandler(w http.ResponseWriter, r *http.Request) {
-	//if r.Method == http.MethodGet {
-	//	// data, err := ioutil.ReadFile("./static/view/signin.html")
-	//	// if err != nil {
-	//	// 	w.WriteHeader(http.StatusInternalServerError)
-	//	// 	return
-	//	// }
-	//	// w.Write(data)
-	//	http.Redirect(w, r, "/static/view/signin.html", http.StatusFound)
-	//	return
-	//}
-	//
 	_ = r.ParseForm()
 	username := r.Form.Get("username")
 	password := r.Form.Get("password")
@@ -79,21 +68,48 @@ func SignInHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// 3. 登录成功后重定向到首页
-	_, _ = w.Write([]byte("http://" + r.Host + "/static/view/home.html"))
-	//resp := util.RespMsg{
-	//	//	Code: 0,
-	//	//	Msg:  "OK",
-	//	//	Data: struct {
-	//	//		Location string
-	//	//		Username string
-	//	//		Token    string
-	//	//	}{
-	//	//		Location: "http://" + r.Host + "/static/view/home.html",
-	//	//		Username: username,
-	//	//		Token:    token,
-	//	//	},
-	//	//}
-	//	//w.Write(resp.JSONBytes())
+	resp := util.RespMsg{
+		Code: 0,
+		Msg:  "OK",
+		Data: struct {
+			Location string
+			Username string
+			Token    string
+		}{
+			Location: "http://" + r.Host + "/static/view/home.html",
+			Username: username,
+			Token:    token,
+		},
+	}
+	_, _ = w.Write(resp.JSONBytes())
+}
+
+// UserInfoHandler ： 查询用户信息
+func UserInfoHandler(w http.ResponseWriter, r *http.Request) {
+	// 1. 解析请求参数
+	_ = r.ParseForm()
+	username := r.Form.Get("username")
+	token := r.Form.Get("token")
+
+	// 2. 验证token是否有效
+	isValidToken := IsTokenValid(token)
+	if !isValidToken {
+		w.WriteHeader(http.StatusForbidden)
+		return
+	}
+	// 3. 查询用户信息
+	user, err := dblayer.GetUserInfo(username)
+	if err != nil {
+		w.WriteHeader(http.StatusForbidden)
+		return
+	}
+	// 4. 组装并且响应用户数据
+	resp := util.RespMsg{
+		Code: 0,
+		Msg:  "OK",
+		Data: user,
+	}
+	_, _ = w.Write(resp.JSONBytes())
 }
 
 // GenToken : 生成token
@@ -109,8 +125,5 @@ func IsTokenValid(token string) bool {
 	if len(token) != 40 {
 		return false
 	}
-	// TODO: 判断token的时效性，是否过期
-	// TODO: 从数据库表tbl_user_token查询username对应的token信息
-	// TODO: 对比两个token是否一致
 	return true
 }
