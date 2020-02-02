@@ -1,8 +1,9 @@
 package meta
 
 import (
-	mydb "filestore-server/db"
 	"sort"
+
+	mydb "filestore-server/db"
 )
 
 // FileMeta : 文件元信息结构
@@ -25,21 +26,32 @@ func UpdateFileMeta(fmeta FileMeta) {
 	fileMetas[fmeta.FileSha1] = fmeta
 }
 
-// UpdateFileMetaDb: 新增/更新文件元信息到mysql中
-func UpdateFileMetaDb(fmeta FileMeta) bool {
-	return mydb.OnFileUploadFinished(fmeta.FileSha1, fmeta.FileName, fmeta.FileSize, fmeta.Location)
-}
-
 // GetFileMeta : 通过sha1值获取文件的元信息对象
 func GetFileMeta(fileSha1 string) FileMeta {
 	return fileMetas[fileSha1]
 }
 
-// GetFileMetaDb: 从mysql获取文件元信息
-func GetFileMetaDb(fileSha1 string) (FileMeta, error) {
+// GetLastFileMetas : 获取批量的文件元信息列表
+func GetLastFileMetas(count int) []FileMeta {
+	fMetaArray := make([]FileMeta, len(fileMetas))
+	for _, v := range fileMetas {
+		fMetaArray = append(fMetaArray, v)
+	}
+
+	sort.Sort(ByUploadTime(fMetaArray))
+	return fMetaArray[0:count]
+}
+
+// RemoveFileMeta : 删除元信息
+func RemoveFileMeta(fileSha1 string) {
+	delete(fileMetas, fileSha1)
+}
+
+// GetFileMetaDB : 从mysql获取文件元信息
+func GetFileMetaDB(fileSha1 string) (FileMeta, error) {
 	tfile, err := mydb.GetFileMeta(fileSha1)
-	if err != nil {
-		return FileMeta{}, nil
+	if err != nil || tfile == nil {
+		return FileMeta{}, err
 	}
 	fmeta := FileMeta{
 		FileSha1: tfile.FileHash,
@@ -50,18 +62,32 @@ func GetFileMetaDb(fileSha1 string) (FileMeta, error) {
 	return fmeta, nil
 }
 
-// GetLastFileMetas : 获取批量的文件元信息列表
-func GetLastFileMetas(count int) []FileMeta {
-	var fMetaArray []FileMeta
-	for _, v := range fileMetas {
-		fMetaArray = append(fMetaArray, v)
+// GetLastFileMetasDB : 批量从mysql获取文件元信息
+func GetLastFileMetasDB(limit int) ([]FileMeta, error) {
+	tfiles, err := mydb.GetFileMetaList(limit)
+	if err != nil {
+		return make([]FileMeta, 0), err
 	}
 
-	sort.Sort(ByUploadTime(fMetaArray))
-	return fMetaArray[0:count]
+	tfilesm := make([]FileMeta, len(tfiles))
+	for i := 0; i < len(tfilesm); i++ {
+		tfilesm[i] = FileMeta{
+			FileSha1: tfiles[i].FileHash,
+			FileName: tfiles[i].FileName.String,
+			FileSize: tfiles[i].FileSize.Int64,
+			Location: tfiles[i].FileAddr.String,
+		}
+	}
+	return tfilesm, nil
 }
 
-// RemoveFileMeta: 删除文件元信息
-func RemoveFileMeta(fileSha1 string) {
-	delete(fileMetas, fileSha1)
+// UpdateFileMetaDB : 新增/更新文件元信息到mysql中
+func UpdateFileMetaDB(fmeta FileMeta) bool {
+	return mydb.OnFileUploadFinished(
+		fmeta.FileSha1, fmeta.FileName, fmeta.FileSize, fmeta.Location)
+}
+
+// OnFileRemovedDB : 删除文件
+func OnFileRemovedDB(filehash string) bool {
+	return mydb.OnFileRemoved(filehash)
 }

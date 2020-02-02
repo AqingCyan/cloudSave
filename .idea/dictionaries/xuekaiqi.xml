@@ -1,8 +1,10 @@
 <component name="ProjectDictionaryState">
   <dictionary name="xuekaiqi">
     <words>
+      <w>cloumns</w>
       <w>dblayer</w>
       <w>encpwd</w>
+      <w>fastupload</w>
       <w>fileaddr</w>
       <w>filehash</w>
       <w>filesize</w>
@@ -15,6 +17,8 @@
       <w>signup</w>
       <w>singin</w>
       <w>tfile</w>
+      <w>tfiles</w>
+      <w>ufile</w>
     </words>
   </dictionary>
 </component>
