@@ -11,7 +11,7 @@ import (
 var db *sql.DB
 
 func init() {
-	db, _ = sql.Open("mysql", "root:xkq199862@/fileserver")
+	db, _ = sql.Open("mysql", "root:123456@/fileserver")
 	db.SetMaxIdleConns(1000)
 	err := db.Ping()
 	if err != nil {

@@ -4,9 +4,7 @@
     <list default="true" id="0aa17c17-dd0d-425e-881b-d0acc020fe29" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/xuekaiqi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/xuekaiqi.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta/filemeta.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta/filemeta.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mysql/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql/conn.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mian.go" beforeDir="false" afterPath="$PROJECT_DIR$/mian.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,7 @@
       <recent name="$PROJECT_DIR$/static/img" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build filestore-server">
     <configuration name="go build filestore-server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="filestore-server" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -62,9 +60,19 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="go build filestore-server/test" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="filestore-server" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/test/test_mpupload.go" />
+      <package value="filestore-server/test" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build filestore-server" />
+        <item itemvalue="Go Build.go build filestore-server/test" />
       </list>
     </recent_temporary>
   </component>
@@ -92,22 +100,42 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="320" y="127" key="#SQL_Dialects/0.23.1440.877@0.23.1440.877" timestamp="1580637182318" />
-    <state width="1398" height="222" key="GridCell.Tab.0.bottom" timestamp="1580649814236">
+    <state width="1878" height="252" key="GridCell.Tab.0.bottom" timestamp="1581162417940">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="252" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1581162417940" />
+    <state width="1398" height="197" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580695300352" />
+    <state width="1878" height="252" key="GridCell.Tab.0.center" timestamp="1581162417939">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="252" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1581162417939" />
+    <state width="1398" height="197" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580695300351" />
+    <state width="1878" height="252" key="GridCell.Tab.0.left" timestamp="1581162417938">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="252" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1581162417938" />
+    <state width="1398" height="197" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580695300350" />
+    <state width="1878" height="252" key="GridCell.Tab.0.right" timestamp="1581162417939">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="252" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1581162417939" />
+    <state width="1398" height="197" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580695300351" />
+    <state width="1398" height="266" key="GridCell.Tab.1.bottom" timestamp="1580695300335">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="222" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580649814236" />
-    <state width="1398" height="222" key="GridCell.Tab.0.center" timestamp="1580649814234">
+    <state width="1398" height="266" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580695300335" />
+    <state width="1398" height="266" key="GridCell.Tab.1.center" timestamp="1580695300334">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="222" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580649814234" />
-    <state width="1398" height="222" key="GridCell.Tab.0.left" timestamp="1580649814234">
+    <state width="1398" height="266" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1580695300334" />
+    <state width="1398" height="266" key="GridCell.Tab.1.left" timestamp="1580695300334">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="222" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580649814234" />
-    <state width="1398" height="222" key="GridCell.Tab.0.right" timestamp="1580649814235">
+    <state width="1398" height="266" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1580695300334" />
+    <state width="1398" height="266" key="GridCell.Tab.1.right" timestamp="1580695300334">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="222" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580649814235" />
+    <state width="1398" height="266" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1580695300334" />
     <state x="221" y="100" key="SettingsEditor" timestamp="1580629363093">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

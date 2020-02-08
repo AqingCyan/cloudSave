@@ -1,6 +1,8 @@
 <component name="ProjectDictionaryState">
   <dictionary name="xuekaiqi">
     <words>
+      <w>chkidx</w>
+      <w>chunkcount</w>
       <w>cloumns</w>
       <w>dblayer</w>
       <w>encpwd</w>
@@ -9,8 +11,13 @@
       <w>filehash</w>
       <w>filesize</w>
       <w>fmeta</w>
+      <w>fpath</w>
       <w>fsha</w>
+      <w>fsize</w>
+      <w>hgetall</w>
+      <w>hset</w>
       <w>internel</w>
+      <w>mpupload</w>
       <w>mydb</w>
       <w>passwd</w>
       <w>signin</w>
@@ -19,6 +26,8 @@
       <w>tfile</w>
       <w>tfiles</w>
       <w>ufile</w>
+      <w>upid</w>
+      <w>uploadid</w>
     </words>
   </dictionary>
 </component>
